@@ -133,13 +133,25 @@ namespace Parallel_Tasks
         */
         private void buttonMC_Click(object sender, EventArgs e)
         {
+            richTextBox1.Text = "";
+            richTextBox2.Text += comboBox1.SelectedItem + "\n";
+            //Start Timer 
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
             //Obtener las fechas
             var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
             var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
             //Llama a la funcion de mayor compra
-            richTextBox1.Text = "";
-            string cliente = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
-            MessageBox.Show(cliente, "Mensaje en Mayores Compras");
+            
+            string cmc = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
+            richTextBox1.Text += cmc + "\n";
+
+           
+            //Stop Timer
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            var sec = TimeSpan.FromMilliseconds(elapsedMs).TotalSeconds;
+            richTextBox2.Text += "Tiempo Función (ms) : " + sec + "\n";
 
         }
 
@@ -194,6 +206,11 @@ namespace Parallel_Tasks
             {
                 MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 1;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Parallel_Tasks
             DateTime Date1 = DateTime.Parse(date1);
             DateTime Date2 = DateTime.Parse(date2);
 
-            string cliente = "No client \n";
+            string cmc = "Prueba en otras fechas" + "\n";
 
             try
             {
@@ -49,11 +49,13 @@ namespace Parallel_Tasks
                             if (monto >= montoMayor)
                             {
                                 montoMayor = monto;
-                                cliente = "Este es el cliente con la mayor compra:\n" + values[1];
+                                cmc = "Este es el cliente con la mayor compra:\n"
+                                    + values[1] + " Monto: " + values[5]  + " Fecha: " +
+                                    values[6];
                             }
                         }
-                        catch (FormatException) { cliente += "Format Exception"; }
-                        catch (OverflowException) { cliente += "OverflowException"; }
+                        catch (FormatException) { cmc += "Format Exception\n"; }
+                        catch (OverflowException) { cmc += "OverflowException\n"; }
 
                     }
 
@@ -61,10 +63,10 @@ namespace Parallel_Tasks
             }
             catch (Exception)
             {
-                cliente += "IO Exception | Busca un archivo de compras <-";
+                cmc += "IO Exception | Busca un archivo de compras <-"+ "\n";
 
             }
-            return cliente;
+            return cmc;
         }
     }
 }
