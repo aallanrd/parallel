@@ -11,8 +11,8 @@ Katherine Parallel
   -dirArchivoCompras
   -type
   );
-++Array de resultados
- +Acumulación de resultado del cliente y otras lineas de rendimiento y número de tarea.
+  ++ Array de resultados
+  + Acumulación de resultado del cliente y otras lineas de rendimiento y número de tarea.
   - ArrayList cmc :
     
 ++Leer todas las lineas de un archivo especifico.
