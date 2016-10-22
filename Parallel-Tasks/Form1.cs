@@ -68,6 +68,7 @@ namespace Parallel_Tasks
                         case 1:
                             dirArchivoClientes = archivoDialog;
                             string[] lines = System.IO.File.ReadAllLines(dirArchivoClientes);
+                            listBox1.Items.Clear();
                             foreach (string line in lines)
                             {
                                 string[] values = line.Split(',');
@@ -98,37 +99,11 @@ namespace Parallel_Tasks
             return archivoDialog;
         }
 
-        private void Process_Click(object sender, EventArgs e)
-        {
-            var window = new Form2(dirArchivoClientes,dirArchivoPerfiles,dirArchivoCompras,comboBox1.SelectedItem);
-            window.Show();
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void file3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void button7_Click(object sender, EventArgs e)
         {
 
-           
+           try { 
             if (!listBox2.Items.Contains(listBox1.SelectedItem))
             {
                 listBox2.Items.Add(listBox1.SelectedItem);
@@ -136,6 +111,93 @@ namespace Parallel_Tasks
             else
             {
                 // item already exists in listbox
+            }
+            }catch(Exception)
+            {
+                MessageBox.Show("Deberias elegir a alguien","Mensaje Importante ");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Remove(listBox2.SelectedItem);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+            var date2 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+
+            mayorCompra(date1, date2);
+
+        }
+
+        private void mayorCompra(string date1, string date2)
+        {
+
+            try
+            {
+                richTextBox1.Text = "";
+                string[] lines = System.IO.File.ReadAllLines(dirArchivoCompras);
+                foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+                    
+                    richTextBox1.Text += line + "\n";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementado aún", "Mensaje Importante ");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementado aún", "Mensaje Importante ");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                richTextBox1.Text = "";
+                string[] lines = System.IO.File.ReadAllLines(dirArchivoCompras);
+                foreach (string line in lines)
+                {
+                    richTextBox1.Text += line + "\n";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
+
+            }
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                richTextBox1.Text = "";
+                string[] lines = System.IO.File.ReadAllLines(dirArchivoPerfiles);
+                foreach (string line in lines)
+                {
+
+                    richTextBox1.Text += line + "\n";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
             }
         }
     }
