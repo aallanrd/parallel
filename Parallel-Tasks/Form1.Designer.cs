@@ -175,7 +175,7 @@
             this.buttonMC.TabIndex = 16;
             this.buttonMC.Text = "Mayor Compra";
             this.buttonMC.UseVisualStyleBackColor = true;
-            this.buttonMC.Click += new System.EventHandler(this.button4_Click);
+            this.buttonMC.Click += new System.EventHandler(this.buttonMC_Click);
             // 
             // buttonBC
             // 
@@ -185,7 +185,7 @@
             this.buttonBC.TabIndex = 17;
             this.buttonBC.Text = "Buscar Compras";
             this.buttonBC.UseVisualStyleBackColor = true;
-            this.buttonBC.Click += new System.EventHandler(this.button5_Click);
+            this.buttonBC.Click += new System.EventHandler(this.buttonBC_Click);
             // 
             // buttonCS
             // 
@@ -195,7 +195,7 @@
             this.buttonCS.TabIndex = 18;
             this.buttonCS.Text = "Compras Sospechosas";
             this.buttonCS.UseVisualStyleBackColor = true;
-            this.buttonCS.Click += new System.EventHandler(this.button6_Click);
+            this.buttonCS.Click += new System.EventHandler(this.buttonCS_Click);
             // 
             // panel2
             // 
@@ -257,7 +257,7 @@
             this.buttonAdd.TabIndex = 24;
             this.buttonAdd.Text = "Add >";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.button7_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label8
             // 

@@ -17,6 +17,8 @@ namespace Parallel_Tasks
 {
     public partial class Form1 : Form
     {
+        Metodos instanciaMetodos = new Metodos();
+
         string dirArchivoClientes = "";
         string dirArchivoPerfiles = "";
         string dirArchivoCompras = "";
@@ -100,7 +102,7 @@ namespace Parallel_Tasks
         }
 
      
-        private void button7_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
 
            try { 
@@ -125,61 +127,36 @@ namespace Parallel_Tasks
             listClientes.Items.Remove(listClientes.SelectedItem);
 
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        /* Funcion principal de busqueda para las mayores compras
+        * 
+        * 
+        */
+        private void buttonMC_Click(object sender, EventArgs e)
         {
             //Obtener las fechas
             var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
             var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
             //Llama a la funcion de mayor compra
-            mayorCompra(date1, date2);
+            richTextBox1.Text = "";
+            string cliente = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
+            MessageBox.Show(cliente, "Mensaje en Mayores Compras");
 
         }
 
-        private void mayorCompra(string date1, string date2)
-        {
-            DateTime Date1 = DateTime.Parse(date1);
-            DateTime Date2 = DateTime.Parse(date2);
-            try
-            {
-
-                richTextBox1.Text = "";
-                //Lee todas las lineas y las guarda en un array
-                string[] lines = System.IO.File.ReadAllLines(dirArchivoCompras);
-                //Recorrer cada linea
-                foreach (string line in lines)
-                {
-                    //Divide los valores por comas dentro de un array
-                    string[] values = line.Split(',');
-                    //La fecha esta en la posicion 6
-                    var fecha = values[6];
-                    //Convertir la fecha (String) a DateTime
-                    DateTime myDate = DateTime.Parse(fecha);
-                    //Compara la fecha del elemento
-                    int result1 = DateTime.Compare(myDate, Date1);
-                    int result2 = DateTime.Compare(myDate, Date2);
-                    
-                    //Si Entra en el rango de fechas.
-                    if ((result1 >= 1) && (result2 <= 0))
-                    {
-                        richTextBox1.Text += line + myDate + "\n";
-                    }
-                    
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
-
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        /* Funcion principal de busqueda de compras de clientes
+     * 
+     * 
+     */
+        private void buttonBC_Click(object sender, EventArgs e)
         {
             MessageBox.Show("No implementado aún", "Mensaje Importante ");
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        /* Funcion principal de busqueda de compras sospechosas
+       * 
+       * 
+       */
+        private void buttonCS_Click(object sender, EventArgs e)
         {
             MessageBox.Show("No implementado aún", "Mensaje Importante ");
         }
@@ -198,7 +175,6 @@ namespace Parallel_Tasks
             catch (Exception)
             {
                 MessageBox.Show("Deberias Buscar un Archivo", "Mensaje Importante ");
-
             }
         }
 
