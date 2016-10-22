@@ -13,13 +13,13 @@ Katherine Parallel
       );
    //Array de resultados
    //Acumulación de resultado del cliente y otras lineas de rendimiento y número de tarea.
-    + ArrayList cmc :
+    +ArrayList cmc :
     
    //Leer todas las lineas de un archivo especifico.
    +File.ReadAllLines(dirArchivoCompras);
    
    //Contiene reloj para la función en ms.
-    +  watch =  Stopwatch.StartNew();
+    +watch =  Stopwatch.StartNew();
     
     //Ejecucion de tareas paralelas
     +Parallel.ForEach(lines, (line) =>
