@@ -18,12 +18,16 @@ namespace Parallel_Tasks
 {
     public partial class Form1 : Form
     {
-        Metodos instanciaMetodos = new Metodos();
+        // Ver archivo Metodos.cs 
+        // Todos los métodos de las funciones principales
+        Metodos iM = new Metodos();
 
+        //Variables dirección de los archivos
         string dirArchivoClientes = "";
         string dirArchivoPerfiles = "";
         string dirArchivoCompras = "";
 
+        //Constructor.
         public Form1()
         {
             InitializeComponent();
@@ -103,6 +107,7 @@ namespace Parallel_Tasks
         }
 
      
+        //Añadir una persona a la lista de clientes a consultar.
         private void buttonAdd_Click(object sender, EventArgs e)
         {
 
@@ -124,6 +129,7 @@ namespace Parallel_Tasks
             }
         }
 
+        //Quitar a una persona de la lista de clientes a consultar
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             //Elimina el elemento de la Lista para Consultas
@@ -131,27 +137,38 @@ namespace Parallel_Tasks
 
         }
         /* Funcion principal de busqueda para las mayores compras
-        * 
-        * 
+        *  Recibe objetos desde la ventana.
+        *  
         */
         private void buttonMC_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
-            
-           
             //Obtener las fechas
             var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
             var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
             //Llama a la funcion de mayor compra
+
+            string type = comboBox1.SelectedItem.ToString();
+
+            //************************
+            //Ejecuta funcion de Metodos.cs instanciado en instanciaMetodos
+            //************************
+            //Obtiene un Array de los resultados del metodo de Mayor compra
+
+            ArrayList cmc = iM.mayorCompra
+                (date1, 
+                date2,
+                dirArchivoCompras,
+                type);
+
+            //************************
+            //************************
             
-           ArrayList cmc = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
+            //Esto es imprimir en el RichTextBox
             foreach (string line in cmc)
             {
                 richTextBox1.Text += line + "\n";
             }
-
-            //Stop Timer
-            
 
         }
 
