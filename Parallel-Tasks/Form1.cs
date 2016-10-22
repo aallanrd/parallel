@@ -1,8 +1,9 @@
-﻿ //* ITCR - SSC - Katherine Tuz
- //* Arquitectura Computadores
- //* II Proyecto Programado.
+﻿//* ITCR - SSC - Katherine Tuz
+//* Arquitectura Computadores
+//* II Proyecto Programado.
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,8 +109,10 @@ namespace Parallel_Tasks
            try { 
             if (!listClientes.Items.Contains(listTClientes.SelectedItem))
             {
-                listClientes.Items.Add(listTClientes.SelectedItem);
-            }
+                    //var cliente =  instanciaMetodos.buscarCliente(listTClientes.SelectedItem);
+                    //listClientes.Items.Add(cliente);
+                    listClientes.Items.Add(listTClientes.SelectedItem);
+                }
             else
             {
                 //No hacer nada, si ya el item existe.
@@ -134,24 +137,21 @@ namespace Parallel_Tasks
         private void buttonMC_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
-            richTextBox2.Text += comboBox1.SelectedItem + "\n";
-            //Start Timer 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-
+            
+           
             //Obtener las fechas
             var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
             var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
             //Llama a la funcion de mayor compra
             
-            string cmc = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
-            richTextBox1.Text += cmc + "\n";
+           ArrayList cmc = instanciaMetodos.mayorCompra(date1, date2,dirArchivoCompras);
+            foreach (string line in cmc)
+            {
+                richTextBox1.Text += line + "\n";
+            }
 
-           
             //Stop Timer
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            var sec = TimeSpan.FromMilliseconds(elapsedMs).TotalSeconds;
-            richTextBox2.Text += "Tiempo Función (ms) : " + sec + "\n";
+            
 
         }
 

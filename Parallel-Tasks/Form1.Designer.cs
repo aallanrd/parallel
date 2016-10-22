@@ -44,8 +44,6 @@
             this.buttonCS = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -203,8 +201,6 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.buttonRemove);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.richTextBox2);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.buttonAdd);
@@ -231,24 +227,6 @@
             this.buttonRemove.Text = "< Remove ";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(330, 233);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Resultados Ejecución";
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(330, 249);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(176, 241);
-            this.richTextBox2.TabIndex = 29;
-            this.richTextBox2.Text = "";
             // 
             // buttonAdd
             // 
@@ -324,7 +302,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(16, 249);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(308, 241);
+            this.richTextBox1.Size = new System.Drawing.Size(490, 241);
             this.richTextBox1.TabIndex = 23;
             this.richTextBox1.Text = "";
             // 
@@ -433,8 +411,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listClientes;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonRemove;

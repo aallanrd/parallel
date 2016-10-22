@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,16 @@ namespace Parallel_Tasks
     class Metodos
     {
 
-        public string mayorCompra(string date1, string date2,string dirArchivoCompras)
+        public ArrayList mayorCompra(string date1, string date2,string dirArchivoCompras)
         {
             DateTime Date1 = DateTime.Parse(date1);
             DateTime Date2 = DateTime.Parse(date2);
-
-            string cmc = "Prueba en otras fechas" + "\n";
-
+            //Start Timer 
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            ArrayList cmc = new ArrayList();
+            string client= "No he encontrado cliente";
+            cmc.Add("Prueba en otras fechas" + "\n");
+            
             try
             {
                 
@@ -49,13 +53,13 @@ namespace Parallel_Tasks
                             if (monto >= montoMayor)
                             {
                                 montoMayor = monto;
-                                cmc = "Este es el cliente con la mayor compra:\n"
+                                client = ("Este es el cliente con la mayor compra:\n"
                                     + values[1] + " Monto: " + values[5]  + " Fecha: " +
-                                    values[6];
+                                    values[6]);
                             }
                         }
-                        catch (FormatException) { cmc += "Format Exception\n"; }
-                        catch (OverflowException) { cmc += "OverflowException\n"; }
+                        catch (FormatException) { cmc.Add("Format Exception\n"); }
+                        catch (OverflowException) { cmc.Add("OverflowException\n"); }
 
                     }
 
@@ -63,10 +67,29 @@ namespace Parallel_Tasks
             }
             catch (Exception)
             {
-                cmc += "IO Exception | Busca un archivo de compras <-"+ "\n";
+                cmc.Add("IO Exception | Busca un archivo de compras <-" + "\n");
 
             }
+            cmc.Add(client);
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            var sec = TimeSpan.FromMilliseconds(elapsedMs).TotalSeconds;
+            cmc.Add("Resultados Tareas:");
+            cmc.Add("Tiempo Función (ms) : " + sec + "\n");
             return cmc;
         }
+
+        public string buscarCompra( string[] clientes, string date1, string date2)
+        {
+            return "Nothing";
+        }
+
+        public Cliente buscarCliente(string id)
+        {
+            return new Cliente();
+        }
+
+
+
     }
 }
