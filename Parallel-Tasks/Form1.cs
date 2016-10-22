@@ -128,10 +128,10 @@ namespace Parallel_Tasks
         private void button7_Click(object sender, EventArgs e)
         {
 
-            listBox2.Items.Add(listBox1.SelectedItem);
-            if (!TeamNameListBox.Items.Contains(TeamNameTextBox.Text))
+           
+            if (!listBox2.Items.Contains(listBox1.SelectedItem))
             {
-                TeamNameListBox.Items.Add(TeamNameTextBox.Text);
+                listBox2.Items.Add(listBox1.SelectedItem);
             }
             else
             {

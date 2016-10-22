@@ -200,7 +200,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 92);
+            this.label3.Location = new System.Drawing.Point(13, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 0;
@@ -232,7 +232,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(129, 236);
+            this.button1.Location = new System.Drawing.Point(139, 256);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 23);
             this.button1.TabIndex = 31;
@@ -243,7 +243,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(211, 299);
+            this.label9.Location = new System.Drawing.Point(219, 299);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(130, 13);
             this.label9.TabIndex = 30;
@@ -251,9 +251,9 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(211, 315);
+            this.richTextBox2.Location = new System.Drawing.Point(222, 315);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(334, 130);
+            this.richTextBox2.Size = new System.Drawing.Size(323, 130);
             this.richTextBox2.TabIndex = 29;
             this.richTextBox2.Text = "";
             // 
@@ -261,7 +261,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(208, 92);
+            this.label8.Location = new System.Drawing.Point(219, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 28;
@@ -282,14 +282,14 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(16, 285);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(189, 160);
+            this.listBox2.Size = new System.Drawing.Size(200, 160);
             this.listBox2.TabIndex = 23;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(16, 236);
+            this.button7.Location = new System.Drawing.Point(71, 100);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(142, 23);
             this.button7.TabIndex = 24;
             this.button7.Text = "Add >";
             this.button7.UseVisualStyleBackColor = true;
@@ -316,9 +316,9 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(16, 112);
+            this.listBox1.Location = new System.Drawing.Point(13, 129);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(189, 121);
+            this.listBox1.Size = new System.Drawing.Size(202, 121);
             this.listBox1.TabIndex = 22;
             // 
             // dateTimePicker2
@@ -337,9 +337,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(211, 112);
+            this.richTextBox1.Location = new System.Drawing.Point(222, 112);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(334, 181);
+            this.richTextBox1.Size = new System.Drawing.Size(323, 181);
             this.richTextBox1.TabIndex = 23;
             this.richTextBox1.Text = "";
             // 
