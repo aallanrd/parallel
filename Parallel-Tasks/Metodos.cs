@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -30,10 +32,10 @@ namespace Parallel_Tasks
             DateTime Date1 = DateTime.Parse(date1);
             DateTime Date2 = DateTime.Parse(date2);
             //Start Timer 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var watch = Stopwatch.StartNew();
             try
             {   //Lee todas las lineas y las guarda en un array
-                string[] lines = System.IO.File.ReadAllLines(dirArchivoCompras);
+                string[] lines = File.ReadAllLines(dirArchivoCompras);
 
                 if (type.Equals("Parallel"))
                 {
@@ -77,17 +79,7 @@ namespace Parallel_Tasks
             return cmc;
         }
 
-        public string buscarCompra( string[] clientes, string date1, string date2)
-        {
-            return "Nothing";
-        }
-
-        public Cliente buscarCliente(string id)
-        {
-            return new Cliente();
-        }
-
-       
+     
         public void mayorCompraMain(string line,DateTime Date1, DateTime Date2)
         {
             //Divide los valores por comas dentro de un array
