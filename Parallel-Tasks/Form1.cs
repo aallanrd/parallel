@@ -124,5 +124,19 @@ namespace Parallel_Tasks
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+            listBox2.Items.Add(listBox1.SelectedItem);
+            if (!TeamNameListBox.Items.Contains(TeamNameTextBox.Text))
+            {
+                TeamNameListBox.Items.Add(TeamNameTextBox.Text);
+            }
+            else
+            {
+                // item already exists in listbox
+            }
+        }
     }
 }

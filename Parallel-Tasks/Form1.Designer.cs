@@ -41,23 +41,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -187,6 +187,15 @@
             this.button5.Text = "Buscar Compras";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(19, 243);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(146, 50);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Compras Sospechosas";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -197,15 +206,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Clientes";
             this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(19, 243);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 50);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Compras Sospechosas";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -230,45 +230,52 @@
             this.panel2.Size = new System.Drawing.Size(556, 461);
             this.panel2.TabIndex = 22;
             // 
-            // label5
+            // button1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Configuración de Consulta";
+            this.button1.Location = new System.Drawing.Point(129, 236);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "< Remove ";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // label9
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(16, 60);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(211, 299);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(130, 13);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Resultados Ejecución";
             // 
-            // dateTimePicker2
+            // richTextBox2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(222, 60);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 24;
+            this.richTextBox2.Location = new System.Drawing.Point(211, 315);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(334, 130);
+            this.richTextBox2.TabIndex = 29;
+            this.richTextBox2.Text = "";
             // 
-            // richTextBox1
+            // label8
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(211, 112);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(334, 181);
-            this.richTextBox1.TabIndex = 23;
-            this.richTextBox1.Text = "";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(208, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Resultados";
             // 
-            // listBox1
+            // label7
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(16, 112);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(189, 121);
-            this.listBox1.TabIndex = 22;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 262);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Clientes a Consultar";
             // 
             // listBox2
             // 
@@ -286,15 +293,7 @@
             this.button7.TabIndex = 24;
             this.button7.Text = "Add >";
             this.button7.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Desde:";
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label6
             // 
@@ -305,52 +304,54 @@
             this.label6.TabIndex = 26;
             this.label6.Text = "Hasta:";
             // 
-            // label7
+            // label4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 262);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 13);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Clientes a Consultar";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Desde:";
             // 
-            // label8
+            // listBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(208, 92);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Resultados";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(16, 112);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(189, 121);
+            this.listBox1.TabIndex = 22;
             // 
-            // richTextBox2
+            // dateTimePicker2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(211, 315);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(334, 130);
-            this.richTextBox2.TabIndex = 29;
-            this.richTextBox2.Text = "";
+            this.dateTimePicker2.Location = new System.Drawing.Point(222, 60);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 24;
             // 
-            // label9
+            // dateTimePicker1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(211, 299);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Resultados Ejecución";
+            this.dateTimePicker1.Location = new System.Drawing.Point(16, 60);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 23;
             // 
-            // button1
+            // richTextBox1
             // 
-            this.button1.Location = new System.Drawing.Point(129, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "< Remove ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.richTextBox1.Location = new System.Drawing.Point(211, 112);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(334, 181);
+            this.richTextBox1.TabIndex = 23;
+            this.richTextBox1.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Configuración de Consulta";
             // 
             // Form1
             // 
