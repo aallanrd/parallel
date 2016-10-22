@@ -1,4 +1,8 @@
-﻿using System;
+﻿ //* ITCR - SSC - Katherine Tuz
+ //* Arquitectura Computadores
+ //* II Proyecto Programado.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,69 +17,112 @@ namespace Parallel_Tasks
 {
     public partial class Form1 : Form
     {
+        string dirArchivoClientes = "";
+        string dirArchivoPerfiles = "";
+        string dirArchivoCompras = "";
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        //Button Action On Click to Search Clients File
+        //Buscar Archivo #1 Clientes
         private void searchClient_Click(object sender, EventArgs e)
         {
-            searchFile(1);
+            dirArchivoClientes = buscarArchivo(1);
         }
-        //Button Action On Click to Search Profile File
+        //Buscar Archivo #2 Perfiles
         private void searchProfile_Click(object sender, EventArgs e)
         {
-            searchFile(2);
+            dirArchivoPerfiles = buscarArchivo(2);
         }
         
-        //Button Action On Click to Search Shop File
+        //Buscar Archivo #3 Compras
         private void searchShop_Click(object sender, EventArgs e)
         {
-            searchFile(3);
+            
+            dirArchivoCompras = buscarArchivo(3);
+            
         }
 
-        public void searchFile(int index)
+        //Busca un archivo y lo asigna a la variable correspondiente
+        // Recibe {{ int index }} 1,2,3 para cada archivo
+        public string buscarArchivo(int index)
         {
+            string archivoDialog = "Not found";
 
-            int size = -1;
-            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-            if (result == DialogResult.OK) // Test result.
+            // Muestra el Dialog.
+            DialogResult result = openFileDialog1.ShowDialog();
+
+            // Comprueba Aceptar.
+            if (result == DialogResult.OK) 
             {
-                string file = openFileDialog1.FileName;
+                //Obtiene el Full Path del Archivo
+                archivoDialog = openFileDialog1.FileName;
                 try
                 {
-                 //   string text = File.ReadAllText(file);
-                  
-                   // size = text.Length;
-                    string directoryPath = Path.GetDirectoryName(file);
                     switch (index)
                     {  
+                        //Dependiendo de cual archivo queremos obtener
+                        //lo asigna a su variable correspondiente
                         case 1:
-                            file1.Text = file;
-                            done1.Checked = true;
+                            dirArchivoClientes = archivoDialog;
+                            string[] lines = System.IO.File.ReadAllLines(dirArchivoClientes);
+                            foreach (string line in lines)
+                            {
+                                string[] values = line.Split(',');
+                                listBox1.Items.Add(values[1]);
+                            }
+
                             break;
-                        case 2:
-                            file2.Text = file;
-                            done2.Checked = true;
-                            break;
-                        case 3:
-                            file3.Text = file;
-                            done3.Checked = true;
-                            break;
-                        default:
-                            break;
-                                
+                        case 2:  dirArchivoPerfiles = archivoDialog; break;
+                        case 3:  dirArchivoCompras = archivoDialog; break;
+                        default: break;
                     }
                 }
-                catch (IOException)
+                catch (IOException e)
                 {
+                    //Si hay un error en el archivo, es captada
+                    //Por el try & catch y la retorna.
+                    return  e.ToString() ;
                 }
             }
-            Console.WriteLine(size); // <-- Shows file size in debugging mode.
-            Console.WriteLine(result); // <-- For debugging use.
+
+            //Obtenemos el último sub string del path retornado por el FileChooser. 
+            // Esto es para no mostrar el FULL Path 
+            file1Label.Text = dirArchivoClientes.Substring(dirArchivoClientes.LastIndexOf(("\\")) + 1);
+            file2.Text = dirArchivoPerfiles.Substring(dirArchivoPerfiles.LastIndexOf(("\\")) + 1);
+            file3.Text = dirArchivoCompras.Substring(dirArchivoCompras.LastIndexOf(("\\")) + 1);
+          
+            //Retorna el Full Path
+            return archivoDialog;
         }
 
-       
+        private void Process_Click(object sender, EventArgs e)
+        {
+            var window = new Form2(dirArchivoClientes,dirArchivoPerfiles,dirArchivoCompras,comboBox1.SelectedItem);
+            window.Show();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void file3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
