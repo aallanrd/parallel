@@ -1,0 +1,6 @@
+206850160,Pedro,Perez,Arce,100 N Iglesia Merced,83809242,001
+478921455,Juan,Perez,Arce,200 O Parque Merced,96245788,002
+135893335,Daniel,Perez,Arce,300 S Rio Merced,23256475,003
+234434566,Antonio,Perez,Arce,400 E Torre Merced,74898541,004
+453453453,Carlos,Perez,Arce,500 N Edificio Merced,12354782,005
+54535344,Fufi,Perez,Arce,600 O Quebrada Merced,78941053,006

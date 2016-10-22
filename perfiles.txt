@@ -1,0 +1,18 @@
+001,LB,2250000,linea blanca
+002,MB,3250000,muebles
+003,EL,850000,electronica
+004,OF,450000,oficina
+005,RP,450000,ropa
+006,ZA,450000,zapatos
+007,JO,450000,joyas
+008,FA,250000,farmacia
+009,SA,250000,salud
+010,BE,250000,belleza
+011,HA,150000,halloween
+012,FI,150000,fiesta
+013,PE,150000,peliculas
+014,MU,150000,musica
+015,LI,50000,libros
+016,BB,50000,bebes
+017,DE,50000,deportes
+018,AC,50000,accesorios
