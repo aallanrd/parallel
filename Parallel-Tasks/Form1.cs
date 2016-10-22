@@ -68,11 +68,11 @@ namespace Parallel_Tasks
                         case 1:
                             dirArchivoClientes = archivoDialog;
                             string[] lines = System.IO.File.ReadAllLines(dirArchivoClientes);
-                            listBox1.Items.Clear();
+                            listTClientes.Items.Clear();
                             foreach (string line in lines)
                             {
                                 string[] values = line.Split(',');
-                                listBox1.Items.Add(values[1]);
+                                listTClientes.Items.Add(values[1]);
                             }
 
                             break;
@@ -104,48 +104,67 @@ namespace Parallel_Tasks
         {
 
            try { 
-            if (!listBox2.Items.Contains(listBox1.SelectedItem))
+            if (!listClientes.Items.Contains(listTClientes.SelectedItem))
             {
-                listBox2.Items.Add(listBox1.SelectedItem);
+                listClientes.Items.Add(listTClientes.SelectedItem);
             }
             else
             {
-                // item already exists in listbox
+                //No hacer nada, si ya el item existe.
             }
             }catch(Exception)
             {
+
                 MessageBox.Show("Deberias elegir a alguien","Mensaje Importante ");
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRemove_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Remove(listBox2.SelectedItem);
+            //Elimina el elemento de la Lista para Consultas
+            listClientes.Items.Remove(listClientes.SelectedItem);
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            //Obtener las fechas
             var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
-            var date2 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
-
+            var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+            //Llama a la funcion de mayor compra
             mayorCompra(date1, date2);
 
         }
 
         private void mayorCompra(string date1, string date2)
         {
-
+            DateTime Date1 = DateTime.Parse(date1);
+            DateTime Date2 = DateTime.Parse(date2);
             try
             {
+
                 richTextBox1.Text = "";
+                //Lee todas las lineas y las guarda en un array
                 string[] lines = System.IO.File.ReadAllLines(dirArchivoCompras);
+                //Recorrer cada linea
                 foreach (string line in lines)
                 {
+                    //Divide los valores por comas dentro de un array
                     string[] values = line.Split(',');
+                    //La fecha esta en la posicion 6
+                    var fecha = values[6];
+                    //Convertir la fecha (String) a DateTime
+                    DateTime myDate = DateTime.Parse(fecha);
+                    //Compara la fecha del elemento
+                    int result1 = DateTime.Compare(myDate, Date1);
+                    int result2 = DateTime.Compare(myDate, Date2);
                     
-                    richTextBox1.Text += line + "\n";
+                    //Si Entra en el rango de fechas.
+                    if ((result1 >= 1) && (result2 <= 0))
+                    {
+                        richTextBox1.Text += line + myDate + "\n";
+                    }
+                    
                 }
             }
             catch (Exception)

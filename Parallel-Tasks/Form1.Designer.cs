@@ -39,24 +39,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonMC = new System.Windows.Forms.Button();
+            this.buttonBC = new System.Windows.Forms.Button();
+            this.buttonCS = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listClientes = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listTClientes = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
@@ -114,7 +114,6 @@
             this.file3.Size = new System.Drawing.Size(90, 13);
             this.file3.TabIndex = 9;
             this.file3.Text = "Busca un archivo";
-           
             // 
             // searchShop
             // 
@@ -151,9 +150,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.buttonMC);
+            this.panel1.Controls.Add(this.buttonBC);
+            this.panel1.Controls.Add(this.buttonCS);
             this.panel1.Location = new System.Drawing.Point(222, 106);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 108);
@@ -167,51 +166,50 @@
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 15;
             this.label2.Text = "Consultas";
-       
             // 
-            // button4
+            // buttonMC
             // 
-            this.button4.Location = new System.Drawing.Point(19, 42);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 50);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Mayor Compra";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonMC.Location = new System.Drawing.Point(19, 42);
+            this.buttonMC.Name = "buttonMC";
+            this.buttonMC.Size = new System.Drawing.Size(70, 50);
+            this.buttonMC.TabIndex = 16;
+            this.buttonMC.Text = "Mayor Compra";
+            this.buttonMC.UseVisualStyleBackColor = true;
+            this.buttonMC.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // buttonBC
             // 
-            this.button5.Location = new System.Drawing.Point(98, 42);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 50);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Buscar Compras";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonBC.Location = new System.Drawing.Point(98, 42);
+            this.buttonBC.Name = "buttonBC";
+            this.buttonBC.Size = new System.Drawing.Size(79, 50);
+            this.buttonBC.TabIndex = 17;
+            this.buttonBC.Text = "Buscar Compras";
+            this.buttonBC.UseVisualStyleBackColor = true;
+            this.buttonBC.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // buttonCS
             // 
-            this.button6.Location = new System.Drawing.Point(183, 42);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(89, 50);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Compras Sospechosas";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.buttonCS.Location = new System.Drawing.Point(183, 42);
+            this.buttonCS.Name = "buttonCS";
+            this.buttonCS.Size = new System.Drawing.Size(89, 50);
+            this.buttonCS.TabIndex = 18;
+            this.buttonCS.Text = "Compras Sospechosas";
+            this.buttonCS.UseVisualStyleBackColor = true;
+            this.buttonCS.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.buttonRemove);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.richTextBox2);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.buttonAdd);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.listBox2);
+            this.panel2.Controls.Add(this.listClientes);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.dateTimePicker2);
@@ -223,15 +221,15 @@
             this.panel2.Size = new System.Drawing.Size(521, 509);
             this.panel2.TabIndex = 22;
             // 
-            // button1
+            // buttonRemove
             // 
-            this.button1.Location = new System.Drawing.Point(16, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "< Remove ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRemove.Location = new System.Drawing.Point(16, 66);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(76, 23);
+            this.buttonRemove.TabIndex = 31;
+            this.buttonRemove.Text = "< Remove ";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // label9
             // 
@@ -251,15 +249,15 @@
             this.richTextBox2.TabIndex = 29;
             this.richTextBox2.Text = "";
             // 
-            // button7
+            // buttonAdd
             // 
-            this.button7.Location = new System.Drawing.Point(16, 43);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(76, 23);
-            this.button7.TabIndex = 24;
-            this.button7.Text = "Add >";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(16, 43);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(76, 23);
+            this.buttonAdd.TabIndex = 24;
+            this.buttonAdd.Text = "Add >";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.button7_Click);
             // 
             // label8
             // 
@@ -281,13 +279,13 @@
             this.label7.TabIndex = 27;
             this.label7.Text = "Clientes a Consultar";
             // 
-            // listBox2
+            // listClientes
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(16, 106);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(200, 108);
-            this.listBox2.TabIndex = 23;
+            this.listClientes.FormattingEnabled = true;
+            this.listClientes.Location = new System.Drawing.Point(16, 106);
+            this.listClientes.Name = "listClientes";
+            this.listClientes.Size = new System.Drawing.Size(200, 108);
+            this.listClientes.TabIndex = 23;
             // 
             // label6
             // 
@@ -339,13 +337,13 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Configuración de Consulta";
             // 
-            // listBox1
+            // listTClientes
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(11, 58);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(189, 173);
-            this.listBox1.TabIndex = 22;
+            this.listTClientes.FormattingEnabled = true;
+            this.listTClientes.Location = new System.Drawing.Point(11, 58);
+            this.listTClientes.Name = "listTClientes";
+            this.listTClientes.Size = new System.Drawing.Size(189, 173);
+            this.listTClientes.TabIndex = 22;
             // 
             // label3
             // 
@@ -394,7 +392,7 @@
             this.Controls.Add(this.searchProfile);
             this.Controls.Add(this.file1Label);
             this.Controls.Add(this.searchClient);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listTClientes);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -420,24 +418,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonBC;
+        private System.Windows.Forms.Button buttonMC;
+        private System.Windows.Forms.Button buttonCS;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listTClientes;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListBox listClientes;
+        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
