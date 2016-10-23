@@ -205,7 +205,11 @@ namespace Parallel_Tasks
 
                            }else
                            {
-                               cbc.Add(client);
+                               if (!cbc.Contains(client))
+                               {
+                                   cbc.Add(client);
+                               }
+                               
                            }
                        });
                     });
