@@ -1,4 +1,4 @@
-001,LB,2250000,linea blanca
+001,LB,225000,linea blanca
 002,MB,3250000,muebles
 003,EL,850000,electronica
 004,OF,450000,oficina
