@@ -79,7 +79,6 @@ namespace Parallel_Tasks
             return cmc;
         }
 
-     
         public void mayorCompraMain(string line,DateTime Date1, DateTime Date2)
         {
             //Divide los valores por comas dentro de un array
@@ -125,6 +124,9 @@ namespace Parallel_Tasks
 
             }
         }
+
+
+
 
     }
 }
