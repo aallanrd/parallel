@@ -12,20 +12,55 @@ namespace Parallel_Tasks
 {
     class Metodos
     {
+        string[] linesClientes;
+        string[] linesCompras;
+        string[] linesPerfiles;
+
+        public Metodos(string dACC, string dACO, string dAPE)
+        {
+           try { 
+           linesClientes = File.ReadAllLines(dACC);
+                //direccion Archivo Compras
+            }
+            catch (Exception)
+            {
+
+            }
+            try { 
+            linesCompras = File.ReadAllLines(dACO);
+            }
+            catch (Exception)
+            {
+
+            }
+            //direccion Archivo Perfiles
+            try
+            {
+                linesPerfiles = File.ReadAllLines(dAPE);
+            }
+            catch (Exception)
+            {
+
+            }
+            
+        }
+
         /*
          *· Determinar que cliente posee la mayor compra en un rango de 
          * fechas determinado. (Este rango lo seleccionará el usuario de la aplicación)
          * Recibe las fechas y la dirección del archivo a leer.
          * Retorna un array de resultados de el cliente y el rendimiento.
+         * cmc = (C)liente (M)ayor (C)ompra.
          */
+
         //Array de Resultados
         ArrayList cmc;
         // Variable comparación 
         string client = "No he encontrado cliente";
         double montoMayor = 0;
 
-        public ArrayList mayorCompra(string date1, string date2,
-            string dirArchivoCompras,string type)
+        // Primer Metodo
+        public ArrayList mayorCompra(string date1, string date2,string type)
         {
             cmc =  new ArrayList(); 
             //Convierte las fechas a Datetime.
@@ -35,11 +70,11 @@ namespace Parallel_Tasks
             var watch = Stopwatch.StartNew();
             try
             {   //Lee todas las lineas y las guarda en un array
-                string[] lines = File.ReadAllLines(dirArchivoCompras);
+                
 
                 if (type.Equals("Parallel"))
                 {
-                    Parallel.ForEach(lines, (line) =>
+                    Parallel.ForEach(linesCompras, (line) =>
                     {
                         mayorCompraMain(line, Date1, Date2);
                     });
@@ -47,7 +82,7 @@ namespace Parallel_Tasks
                 }
                 else
                 {
-                foreach (string line in lines)
+                foreach (string line in linesCompras)
                 {
                     mayorCompraMain(line, Date1, Date2);
 
@@ -55,7 +90,7 @@ namespace Parallel_Tasks
             }
                 //Recorrer cada linea de compras.
                 cmc.Add("Resultados Tareas:");
-                cmc.Add("Lines Readed: " + lines.Length);
+                cmc.Add("Lines Readed: " + linesCompras.Length);
 
 
             }
@@ -85,7 +120,7 @@ namespace Parallel_Tasks
             //Divide los valores por comas dentro de un array
             string[] values = line.Split(',');
             //La fecha esta en la posicion 6
-            var fecha = values[6];
+            var fecha = values[5];
             //Convertir la fecha (String) a DateTime
             DateTime myDate = DateTime.Parse(fecha);
             //Compara la fecha del elemento
@@ -100,7 +135,7 @@ namespace Parallel_Tasks
                 try
                 {   //Obtenermos el monto de esa compra
                     //Esta en la posicion 4 y convertirlo a double.
-                    double monto = Convert.ToDouble(values[5]);
+                    double monto = Convert.ToDouble(values[4]);
 
                     //Comparar el monto obtenido, con el mayor actual
                     if (monto >= montoMayor)
@@ -114,8 +149,8 @@ namespace Parallel_Tasks
 
                         //Coloca Tarea
                         client = ("Este es el cliente con la mayor compra:\n"
-                            + values[1] + " Monto: " + values[5] + " Fecha: " +
-                            values[6] + " Thread:" + Thread.CurrentThread.ManagedThreadId); 
+                            + values[1] + " Monto: " + values[4] + " Fecha: " +
+                            values[5] + " Thread:" + Thread.CurrentThread.ManagedThreadId); 
                     }
                 }
                 //Excepcion de formato
@@ -124,6 +159,18 @@ namespace Parallel_Tasks
                 catch (OverflowException) { cmc.Add("OverflowException\n"); }
 
             }
+        }
+
+        // Segundo Metodo
+        public ArrayList buscarCompras (string date1, string date2,
+            string[] nombre_clientes,string type)
+        {
+            foreach(string x in nombre_clientes)
+            {
+                var y = x;
+
+            }
+            return null;
         }
 
     }

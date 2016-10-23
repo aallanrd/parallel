@@ -20,7 +20,8 @@ namespace Parallel_Tasks
     {
         // Ver archivo Metodos.cs 
         // Todos los métodos de las funciones principales
-        Metodos iM = new Metodos();
+        Metodos iM ;
+
 
         //Variables dirección de los archivos
         string dirArchivoClientes = "";
@@ -37,19 +38,24 @@ namespace Parallel_Tasks
         private void searchClient_Click(object sender, EventArgs e)
         {
             dirArchivoClientes = buscarArchivo(1);
+             iM = new Metodos(dirArchivoClientes, dirArchivoCompras, dirArchivoPerfiles);
+
         }
         //Buscar Archivo #2 Perfiles
         private void searchProfile_Click(object sender, EventArgs e)
         {
             dirArchivoPerfiles = buscarArchivo(2);
+             iM = new Metodos(dirArchivoClientes, dirArchivoCompras, dirArchivoPerfiles);
+
         }
-        
+
         //Buscar Archivo #3 Compras
         private void searchShop_Click(object sender, EventArgs e)
         {
             
             dirArchivoCompras = buscarArchivo(3);
-            
+             iM = new Metodos(dirArchivoClientes, dirArchivoCompras, dirArchivoPerfiles);
+
         }
 
         //Busca un archivo y lo asigna a la variable correspondiente
@@ -110,8 +116,7 @@ namespace Parallel_Tasks
         //Añadir una persona a la lista de clientes a consultar.
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
-           try { 
+            try { 
             if (!listClientes.Items.Contains(listTClientes.SelectedItem))
             {
                     //var cliente =  instanciaMetodos.buscarCliente(listTClientes.SelectedItem);
@@ -149,36 +154,67 @@ namespace Parallel_Tasks
             //Llama a la funcion de mayor compra
 
             string type = comboBox1.SelectedItem.ToString();
-
-            //************************
-            //Ejecuta funcion de Metodos.cs instanciado en instanciaMetodos
+            try { 
             //************************
             //Obtiene un Array de los resultados del metodo de Mayor compra
-
-            ArrayList cmc = iM.mayorCompra
-                (date1, 
-                date2,
-                dirArchivoCompras,
-                type);
-
-            //************************
-            //************************
-            
+            ArrayList cmc = iM.mayorCompra (date1,  date2, type);
+            //************************           
             //Esto es imprimir en el RichTextBox
             foreach (string line in cmc)
             {
                 richTextBox1.Text += line + "\n";
             }
-
+            }
+            catch (Exception)
+            {
+                richTextBox1.Text += "Deberias elegir a alguien para analizar" + "\n";
+            }
         }
 
+        
+
         /* Funcion principal de busqueda de compras de clientes
-     * 
-     * 
      */
         private void buttonBC_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado aún", "Mensaje Importante ");
+            richTextBox1.Text = "";
+            //Obtener las fechas
+            var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+            var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+           
+            //Cual tipo de método va a correr 
+            string type = comboBox1.SelectedItem.ToString();
+
+            //************************
+            //Ejecuta funcion de Metodos.cs instanciado en instanciaMetodos
+            //************************
+           
+            //Lista de clientes a consultar
+            String[] array = new String[listClientes.Items.Count];
+            listClientes.Items.CopyTo(array, 0);
+
+          
+
+            //************************
+            //************************
+            try {
+                //Obtiene un Array de los resultados del metodo de Mayor compra
+                ArrayList cmc = iM.buscarCompras
+                    (date1,
+                    date2,
+                    array,
+                    type);
+                //Esto es imprimir en el RichTextBox
+                foreach (string line in cmc)
+            {
+                richTextBox1.Text += line + "\n";
+            }
+            }
+            catch(Exception)
+            {
+                richTextBox1.Text += "Deberias elegir a alguien para analizar" + "\n";
+            }
+
         }
 
         /* Funcion principal de busqueda de compras sospechosas
