@@ -9,7 +9,7 @@ namespace Parallel_Tasks
 {
     class Cliente
     {
-        string cedula ;
+        string cedula;
         string nombre;
         string apell1;
         string apell2;
@@ -18,7 +18,7 @@ namespace Parallel_Tasks
         string perfil;
 
         public Cliente()
-        {
+        { 
 
         }
        

@@ -54,7 +54,7 @@ namespace Parallel_Tasks
         {
             
             dirArchivoCompras = buscarArchivo(3);
-             iM = new Metodos(dirArchivoClientes, dirArchivoCompras, dirArchivoPerfiles);
+            iM = new Metodos(dirArchivoClientes, dirArchivoCompras, dirArchivoPerfiles);
 
         }
 
@@ -149,8 +149,8 @@ namespace Parallel_Tasks
         {
             richTextBox1.Text = "";
             //Obtener las fechas
-            var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
-            var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+            var date1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            var date2 = dateTimePicker2.Value.ToString("dd/MM/yyyy");
             //Llama a la funcion de mayor compra
 
             string type = comboBox1.SelectedItem.ToString();
@@ -167,7 +167,7 @@ namespace Parallel_Tasks
             }
             catch (Exception)
             {
-                richTextBox1.Text += "Deberias elegir a alguien para analizar" + "\n";
+                richTextBox1.Text += "<--Aquí..... Debes elegir un archivo" + "\n";
             }
         }
 
@@ -179,8 +179,8 @@ namespace Parallel_Tasks
         {
             richTextBox1.Text = "";
             //Obtener las fechas
-            var date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
-            var date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+            var date1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            var date2 = dateTimePicker2.Value.ToString("dd/MM/yyyy");
            
             //Cual tipo de método va a correr 
             string type = comboBox1.SelectedItem.ToString();
@@ -192,27 +192,26 @@ namespace Parallel_Tasks
             //Lista de clientes a consultar
             String[] array = new String[listClientes.Items.Count];
             listClientes.Items.CopyTo(array, 0);
-
-          
-
+            
             //************************
             //************************
             try {
-                //Obtiene un Array de los resultados del metodo de Mayor compra
-                ArrayList cmc = iM.buscarCompras
+                //Obtiene un Array de los resultados del metodo de Busqueda de compras
+                //para N personas
+                ArrayList cbc =  iM.buscarCompras
                     (date1,
                     date2,
                     array,
                     type);
                 //Esto es imprimir en el RichTextBox
-                foreach (string line in cmc)
+                foreach (string line in cbc)
             {
                 richTextBox1.Text += line + "\n";
             }
             }
             catch(Exception)
             {
-                richTextBox1.Text += "Deberias elegir a alguien para analizar" + "\n";
+                richTextBox1.Text += "xxDeberias elegir a alguien para analizar" + "\n";
             }
 
         }
@@ -264,6 +263,11 @@ namespace Parallel_Tasks
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
