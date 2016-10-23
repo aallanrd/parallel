@@ -454,7 +454,7 @@ namespace Parallel_Tasks
                     var nombre = values[0];
                     if (nombre.Equals(perfil))
                     {
-                        cliD = values[0];
+                        cliD = values[2];
                     }
 
                 }
