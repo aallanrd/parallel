@@ -222,7 +222,44 @@ namespace Parallel_Tasks
        */
         private void buttonCS_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado aún", "Mensaje Importante ");
+            richTextBox1.Text = "";
+            //Obtener las fechas
+            var date1 = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            var date2 = dateTimePicker2.Value.ToString("dd/MM/yyyy");
+
+            //Cual tipo de método va a correr 
+            string type = comboBox1.SelectedItem.ToString();
+
+            //************************
+            //Ejecuta funcion de Metodos.cs instanciado en instanciaMetodos
+            //************************
+
+            //Lista de clientes a consultar
+            String[] array = new String[listClientes.Items.Count];
+
+            string perfil = perfilText.Text;
+
+            //************************
+            //************************
+            try
+            {
+                //Obtiene un Array de los resultados del metodo de Busqueda de compras
+                //para N personas
+                ArrayList bcs = iM.buscarComprasSospechosas
+                    (date1,
+                    date2,
+                    perfil,
+                    type);
+                //Esto es imprimir en el RichTextBox
+                foreach (string line in bcs)
+                {
+                    richTextBox1.Text += line + "\n";
+                }
+            }
+            catch (Exception)
+            {
+                richTextBox1.Text += "xxDeberias elegir a alguien para analizar" + "\n";
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

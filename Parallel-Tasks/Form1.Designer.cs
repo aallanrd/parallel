@@ -58,6 +58,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.perfilText = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -148,19 +150,21 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.perfilText);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.buttonMC);
             this.panel1.Controls.Add(this.buttonBC);
             this.panel1.Controls.Add(this.buttonCS);
             this.panel1.Location = new System.Drawing.Point(222, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 108);
+            this.panel1.Size = new System.Drawing.Size(284, 137);
             this.panel1.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 13);
+            this.label2.Location = new System.Drawing.Point(16, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 15;
@@ -168,9 +172,9 @@
             // 
             // buttonMC
             // 
-            this.buttonMC.Location = new System.Drawing.Point(19, 42);
+            this.buttonMC.Location = new System.Drawing.Point(19, 31);
             this.buttonMC.Name = "buttonMC";
-            this.buttonMC.Size = new System.Drawing.Size(70, 50);
+            this.buttonMC.Size = new System.Drawing.Size(79, 50);
             this.buttonMC.TabIndex = 16;
             this.buttonMC.Text = "Mayor Compra";
             this.buttonMC.UseVisualStyleBackColor = true;
@@ -178,7 +182,7 @@
             // 
             // buttonBC
             // 
-            this.buttonBC.Location = new System.Drawing.Point(98, 42);
+            this.buttonBC.Location = new System.Drawing.Point(19, 87);
             this.buttonBC.Name = "buttonBC";
             this.buttonBC.Size = new System.Drawing.Size(79, 50);
             this.buttonBC.TabIndex = 17;
@@ -188,7 +192,7 @@
             // 
             // buttonCS
             // 
-            this.buttonCS.Location = new System.Drawing.Point(183, 42);
+            this.buttonCS.Location = new System.Drawing.Point(183, 73);
             this.buttonCS.Name = "buttonCS";
             this.buttonCS.Size = new System.Drawing.Size(89, 50);
             this.buttonCS.TabIndex = 18;
@@ -355,6 +359,22 @@
             this.linkLabel2.Text = "Ver Archivo";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // perfilText
+            // 
+            this.perfilText.Location = new System.Drawing.Point(129, 47);
+            this.perfilText.Name = "perfilText";
+            this.perfilText.Size = new System.Drawing.Size(143, 20);
+            this.perfilText.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(198, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Perfil Consulta";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,6 +437,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox perfilText;
     }
 }
 

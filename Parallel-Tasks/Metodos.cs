@@ -302,45 +302,17 @@ namespace Parallel_Tasks
             return client;
         }
 
-        private string buscarCliente(string cliente)
-        {
-            string cliD = "0";
-            foreach (string line in linesClientes)
-            {
-                string[] values = line.Split(',');
-                var nombre = values[1];
-                if (nombre.Equals(cliente))
-                {
-                    cliD = values[0];
-                }
-
-            }
-            return cliD;
-        }
-
-        private string buscarCliente(int id_cliente)
-        {
-            string cliD = "No name";
-            foreach (string line in linesClientes)
-            {
-                string[] values = line.Split(',');
-                var id = Int32.Parse(values[0]);
-                if (id.Equals(id_cliente))
-                {
-                    cliD = values[1];
-                }
-
-            }
-            return cliD;
-        }
-
-        ArrayList ccs;
+        /* Busqueda compras Sospechosas
+         * 
+         * */
+        ArrayList bcs;
+        string compra = "";
 
         public ArrayList buscarComprasSospechosas(string date1, string date2,
             string perfil, string type)
         {
 
-            ccs = new ArrayList();
+            bcs = new ArrayList();
             //Convierte las fechas a Datetime.
             DateTime Date1 = DateTime.Parse(date1);
             DateTime Date2 = DateTime.Parse(date2);
@@ -356,7 +328,7 @@ namespace Parallel_Tasks
                     Parallel.ForEach(linesCompras, (line) =>
                     {
                         //Funcion Auxiliar en Paralello
-                        client = mayorCompraMain(line, Date1, Date2);
+                        compra = busquedaSospechosa(line, Date1, Date2,perfil);
                     });
 
                 }
@@ -365,21 +337,21 @@ namespace Parallel_Tasks
                     foreach (string line in linesCompras)
                     {
                         //Funcion Auxiliar en Secuencia.
-                        client = mayorCompraMain(line, Date1, Date2);
+                        compra = busquedaSospechosa(line, Date1, Date2,perfil);
 
                     }
                 }
                 //Recorrer cada linea de compras.
-                ccs.Add("Resultados Tareas:");
-                ccs.Add("Lines Readed: " + linesCompras.Length);
+                bcs.Add("Resultados Tareas:");
+                bcs.Add("Lines Readed: " + linesCompras.Length);
             }
             catch (Exception)
             {
-                ccs.Add("IO Exception | Busca un archivo de compras <-" + "\n");
+                bcs.Add("IO Exception | Busca un archivo de compras <-" + "\n");
 
             }
             //Añade el cliente al array de respuesta
-            ccs.Add(client);
+            bcs.Add(compra);
             //Detiene el reloj
             watch.Stop();
             //Convertir de Milisegundos a Segundos
@@ -387,12 +359,161 @@ namespace Parallel_Tasks
             var sec = TimeSpan.FromMilliseconds(elapsedMs).TotalSeconds;
             //Añade el tiempo al array de respuesta
 
-            ccs.Add("Tiempo Función (ms) : " + sec + "\n");
+            bcs.Add("Tiempo Función (ms) : " + sec + "\n");
 
             //Retorna el array de respuesta.
-            return ccs;
+            return bcs;
 
         }
+
+        private string busquedaSospechosa(string line, DateTime Date1, DateTime Date2, string perfil)
+        {
+            //Divide los valores por comas dentro de un array
+            string[] values = line.Split(',');
+            //La fecha esta en la posicion 6
+            var fecha = values[5];
+            //Convertir la fecha (String) a DateTime
+            DateTime myDate = DateTime.Parse(fecha);
+            //Compara la fecha del elemento
+            int result1 = DateTime.Compare(myDate, Date1);
+            int result2 = DateTime.Compare(myDate, Date2);
+
+            //Si Entra en el rango de fechas.
+            if ((result1 >= 1) && (result2 <= 0))
+            {
+                // richTextBox1.Text += line + myDate + "\n";
+
+                try
+                {
+                    string perfilx = buscarPerfil(values[3]);
+                    if (perfil == perfilx)
+                    {
+                        string monto = buscarPerfilMonto(perfilx);
+                        double montoMaxi = Double.Parse(monto);
+                        if (Double.Parse(values[4]) >= montoMaxi)
+                        {
+                            string cli = buscarCliente(values[0]);
+                            //Coloca Tarea
+                            compra += ("\nCompra Sospechosa para perfil: " + perfil
+                                 +" - " + cli + " - " + values[1] + " -Monto: " + values[4] + " Fecha: " +
+                                   values[5] + " Thread:" + Thread.CurrentThread.ManagedThreadId);
+
+                        }
+                       
+                    }
+
+                }
+
+                //Excepcion de formato
+                catch (FormatException) { bcs.Add("Format Exception\n"); }
+                //Exception de Overflow
+                catch (OverflowException) { bcs.Add("OverflowException\n"); }
+
+            }
+            else
+            {
+
+            }
+            return compra;
+        }
+        //Buscar CLiente por Nombre
+        private string buscarPerfil(string perfil)
+        {
+            string cliD = "0";
+            try
+            {
+                
+                foreach (string line in linesPerfiles)
+                {
+                    string[] values = line.Split(',');
+                    var nombre = values[3];
+                    if (nombre.Equals(perfil))
+                    {
+                        cliD = values[0];
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return cliD;
+        }
+
+        //Buscar monto de perfi
+        private string buscarPerfilMonto(string perfil)
+        {
+            string cliD = "0";
+            try
+            {
+                
+                foreach (string line in linesPerfiles)
+                {
+                    string[] values = line.Split(',');
+                    var nombre = values[0];
+                    if (nombre.Equals(perfil))
+                    {
+                        cliD = values[0];
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return cliD;
+        }
+
+        //Buscar CLiente por Nombre
+        private string buscarCliente(string cliente)
+        {
+            string cliD = "0";
+            try { 
+            
+            foreach (string line in linesClientes)
+            {
+                string[] values = line.Split(',');
+                var nombre = values[1];
+                if (nombre.Equals(cliente))
+                {
+                    cliD = values[0];
+                }
+
+            }
+            }
+            catch(Exception)
+            {
+
+            }
+            return cliD;
+        }
+        //Buscar cliente por ID
+        private string buscarCliente(int id_cliente)
+        {
+            string cliD = "No name";
+            try
+            {
+                
+                foreach (string line in linesClientes)
+                {
+                    string[] values = line.Split(',');
+                    var id = Int32.Parse(values[0]);
+                    if (id.Equals(id_cliente))
+                    {
+                        cliD = values[1];
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return cliD;
+        }
+
 
     }
 }
