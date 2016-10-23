@@ -151,10 +151,14 @@ namespace Parallel_Tasks
                         //Obtener Tarea Actual
 
                         cmc.Add("Entra en fecha para consulta");
+                        var name = buscarCliente(Int32.Parse(values[1]));
                         //Coloca Tarea
-                        client = ("Este es el cliente con la mayor compra:\n"
-                            + values[1] + " Monto: " + values[4] + " Fecha: " +
-                            values[5] + " Thread:" + Thread.CurrentThread.ManagedThreadId); 
+                        client = ("Este es el cliente con la mayor compra: -\n"
+                            + values[1] +" "+ name  +  " Monto: " + values[4] + " Fecha: " +
+                            values[5] + " Thread:" + Thread.CurrentThread.ManagedThreadId);
+
+
+                        
                     }
                     
                 }
@@ -308,6 +312,22 @@ namespace Parallel_Tasks
                 if (nombre.Equals(cliente))
                 {
                     cliD = values[0];
+                }
+
+            }
+            return cliD;
+        }
+
+        private string buscarCliente(int id_cliente)
+        {
+            string cliD = "No name";
+            foreach (string line in linesClientes)
+            {
+                string[] values = line.Split(',');
+                var id = Int32.Parse(values[0]);
+                if (id.Equals(id_cliente))
+                {
+                    cliD = values[1];
                 }
 
             }
